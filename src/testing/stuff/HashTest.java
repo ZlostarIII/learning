@@ -8,7 +8,7 @@ public class HashTest {
 		System.out.println(areEqual(new HashClass("a"), new HashClass("a")));
 		System.out.println(new HashClass("a").hashCode());
 		System.out.println(new HashClass("a").hashCode());
-		System.out.println(new HashClass("b").hashCode());
+		System.out.println(new HashClass("A").hashCode());
 	}
 
 	public static int hash() {
