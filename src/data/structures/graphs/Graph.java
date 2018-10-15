@@ -210,19 +210,50 @@ class Graph {
 		g1.addEdgeUndirected(2, 3);
 		g1.addEdgeUndirected(3, 4);
 		System.out.println("Coloring of graph 1");
+		g1.BFSalg(0);
+		g1.DFS(0);
 		g1.greedyColoring();
 		System.out.println(g1.isTree());
 
 		System.out.println();
 		Graph g2 = new Graph(5);
-		g2.addEdgeUndirected(0, 1);
+		g2.addEdgeUndirected(0, 1);	
 		g2.addEdgeUndirected(0, 2);
 		g2.addEdgeUndirected(1, 2);
 		g2.addEdgeUndirected(1, 4);
 		g2.addEdgeUndirected(2, 4);
 		g2.addEdgeUndirected(4, 3);
-		System.out.println("Coloring of graph 2 ");
+		System.out.println("Coloring of graph 2");
+		g2.BFSalg(0);
+		g2.DFS(0);
 		g2.greedyColoring();
 		System.out.println(g2.isTree());
+		
+		Graph g3 = new Graph(5);
+		g3.addEdgeDirected(0, 1);
+		g3.addEdgeDirected(0, 2);
+		g3.addEdgeDirected(1, 2);
+		g3.addEdgeDirected(1, 3);
+		g3.addEdgeDirected(2, 3);
+		g3.addEdgeDirected(3, 4);
+		System.out.println("Coloring of graph 3");
+		g3.BFSalg(0);
+		g3.DFS(0);
+		g3.greedyColoring();
+		System.out.println(g3.isTree());
+
+		System.out.println();
+		Graph g4 = new Graph(5);
+		g4.addEdgeDirected(0, 1);	
+		g4.addEdgeDirected(0, 2);
+		g4.addEdgeDirected(1, 2);
+		g4.addEdgeDirected(1, 4);
+		g4.addEdgeDirected(2, 4);
+		g4.addEdgeDirected(4, 3);
+		System.out.println("Coloring of graph 4");
+		g4.BFSalg(0);
+		g4.DFS(0);
+		g4.greedyColoring();
+		System.out.println(g4.isTree());
 	}
 }
