@@ -14,6 +14,10 @@ public class Base {
 	public static void main(String args[]) {
 		Base base = new Base();
 		Derived2 der = base.new Derived2();
+		
+		char a = 'a';
+		int aa = a;
+		System.out.println("Converted char is: " + aa);
 
 		der.fun();
 
