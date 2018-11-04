@@ -1,0 +1,25 @@
+package multi.inheritence;
+
+class Alpha {
+	String getType() {
+		return "alpha ";
+	}
+}
+class Beta extends Alpha {
+	String getType() {
+		return "beta ";
+	}
+}
+
+public class Gamma extends Beta {
+	String getType() {
+		return "gamma ";
+	}
+	
+	public static void main(String[] args) {
+		Alpha g1 = new Beta();
+		Alpha a1 = g1;
+		Beta g2 = new Gamma();
+		System.out.println(g1.getType() + g2.getType() + a1.getType());
+	}
+}

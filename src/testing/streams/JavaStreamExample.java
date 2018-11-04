@@ -25,5 +25,10 @@ public class JavaStreamExample {
 		
 		// displaying data
 		productPriceList.forEach(System.out::println);
+		
+		List<String> productNameList = productsList.stream().filter(product -> product.getPrice() > 25000)
+				.map(Product::getName).collect(Collectors.toList());
+		
+		productNameList.forEach(System.out::println);
 	}
 }

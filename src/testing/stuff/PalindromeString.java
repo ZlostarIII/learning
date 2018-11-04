@@ -35,7 +35,7 @@ public class PalindromeString {
 		System.out.println(isPalindrome(s3));
 
 		String s4 = "Madam In Eden, I'm Adam";
-		System.out.println(isPalindrome(s3));
+		System.out.println(isPalindrome(s4));
 	}
 
 }

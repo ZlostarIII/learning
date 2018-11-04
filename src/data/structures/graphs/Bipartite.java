@@ -2,7 +2,7 @@ package data.structures.graphs;
 
 //JAVA Code to check whether a given 
 //graph is Bipartite or not 
-import java.util.*;
+import java.util.LinkedList;
 
 class Bipartite {
 
@@ -67,7 +67,7 @@ class Bipartite {
 		for (int i = 0; i < V; ++i)
 			colorArr[i] = -1;
 
-		// This code is to handle disconnected graoh
+		// This code is to handle disconnected graph
 		for (int i = 0; i < V; i++)
 			if (colorArr[i] == -1)
 				if (isBipartiteUtil(G, i, colorArr) == false)
