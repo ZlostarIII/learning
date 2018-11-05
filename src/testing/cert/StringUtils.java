@@ -8,7 +8,10 @@ public class StringUtils {
 		sb.append(s);
 		sb.substring(4); // doesn't work
 		System.out.println(sb);
-		System.out.println(sb.indexOf(s+"ing"));
+		System.out.println(sb.indexOf(s + "ing"));
+
+		int i = 0111_000;
+		System.out.println(i);
 	}
 
 }
