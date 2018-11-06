@@ -18,7 +18,7 @@ public class StringUtils {
 		System.out.println(sb);
 		System.out.println(sb.indexOf(s + "ing"));
 
-		int i = 0111_000;
+		int i = 0b111_000;
 		System.out.println(i);
 
 		long thisIsSilly = 0x3______4__3;
