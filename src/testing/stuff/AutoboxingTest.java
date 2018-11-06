@@ -4,7 +4,7 @@ public class AutoboxingTest {
 
 	public static void main(String args[]) {
 
-		// Example 1: == comparison pure primitive – no autoboxing
+		// Example 1: == comparison pure primitive no autoboxing
 		int i1 = 1;
 		int i2 = 1;
 		System.out.println("i1 == i2 : " + (i1 == i2)); // true

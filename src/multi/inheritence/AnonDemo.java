@@ -3,13 +3,13 @@ package multi.inheritence;
 import java.lang.reflect.Method;
 
 class Anon {
-};
+}
 
 public class AnonDemo {
 	public static void main(String[] args) throws Exception {
 
 		new Anon() {
-			public void hello() {
+			private void hello() {
 				System.out.println("Woah!!! ");
 			}
 		}.hello();
@@ -36,10 +36,10 @@ public class AnonDemo {
 
 		// @formatter:off
 		var anonInner2 = new Anon() {
-	          public void hello() { 
+	          private void hello() {
 	                   System.out.println("New method here, and you can easily access me in Java 10+!\n" +
 	                  "The class is:  " + this.getClass());
-	          };
+	          }
 		};
 		
 		anonInner2.hello(); // Works!!
