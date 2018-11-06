@@ -2,6 +2,10 @@ package testing.cert;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class StringUtils {
 
@@ -43,9 +47,42 @@ public class StringUtils {
 		String separator = (String) f.get(System.class);
 		System.out.println("Line separator is " + separator + ".");
 
-//		Method m = System.class.getDeclaredMethod("checkPermission");
-//		m.setAccessible(true);
-//		m.invoke(System.class);
+		f.set(System.class, "!!!");
+		System.out.println("Line one");
+		System.out.println("Line two");
+		System.out.println("Line three");
+
+		// Method m = System.class.getDeclaredMethod("checkPermission");
+		// m.setAccessible(true);
+		// m.invoke(System.class);
+
+		// Labels
+		outerLoop: while (true) {
+			System.out.println("I'm the outer loop");
+			while (true) {
+				System.out.println("I am the inner loop");
+				break outerLoop;
+			}
+		}
+
+		// Double braces initialization of collections
+		Map<String, String> map = new HashMap<String, String>() {
+			{
+				put("it", "really");
+				put("works", "!");
+			}
+		};
+
+		Set<String> set = new HashSet<String>() {
+			{
+				add("It");
+				add("works");
+				add("with");
+				add("other");
+				add("collections");
+				add("too");
+			}
+		};
 	}
 
 }
