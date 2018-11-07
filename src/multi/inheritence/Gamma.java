@@ -5,6 +5,7 @@ class Alpha {
 		return "alpha ";
 	}
 }
+
 class Beta extends Alpha {
 	String getType() {
 		return "beta ";
@@ -17,9 +18,12 @@ public class Gamma extends Beta {
 	}
 	
 	public static void main(String[] args) {
+		Alpha a = new Alpha();
 		Alpha g1 = new Beta();
 		Alpha a1 = g1;
 		Beta g2 = new Gamma();
 		System.out.println(g1.getType() + g2.getType() + a1.getType());
+		
+		System.out.println(a instanceof Beta);
 	}
 }

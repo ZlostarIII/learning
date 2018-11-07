@@ -83,6 +83,10 @@ public class StringUtils {
 				add("too");
 			}
 		};
+
+		String q = "420";
+		q += 42;
+        System.out.println(q);
 	}
 
 }
