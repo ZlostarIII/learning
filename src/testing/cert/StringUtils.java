@@ -51,10 +51,13 @@ public class StringUtils {
 		System.out.println("Line one");
 		System.out.println("Line two");
 		System.out.println("Line three");
+        System.out.print("\n");
 
 		// Method m = System.class.getDeclaredMethod("checkPermission");
 		// m.setAccessible(true);
 		// m.invoke(System.class);
+
+        f.set(System.class, "\n");
 
 		// Labels
 		outerLoop: while (true) {
@@ -87,6 +90,14 @@ public class StringUtils {
 		String q = "420";
 		q += 42;
         System.out.println(q);
+
+        int x = 5;
+        System.out.println(x++);
+        System.out.println(++x);
+
+        String hello = "Hello";
+        System.out.println(hello == "Hello");
+        System.out.println(false || true);
 	}
 
 }
