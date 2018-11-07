@@ -28,7 +28,7 @@ public class AutoboxingTest {
 		
 		Integer two = new Integer(1);
 		int two2 = 1;
-		System.out.println("two == two2 : " + (two == two2)); // false
+		System.out.println("two == two2 : " + (two == two2)); // true
 
 	}
 
