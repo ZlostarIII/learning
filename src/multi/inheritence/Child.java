@@ -35,5 +35,6 @@ public class Child extends Dad implements Dad1, Dad2, Dad3 {
 		
 		Dad d2 = new Child();
 		((Child) d2).kickBall();
+		d2.speak();
 	}
 }

@@ -94,7 +94,7 @@ public class ChangingNumbers {
 			System.out.println(nf.parse(getNums));
 		}
 		
-		ArrayList<String> items = new ArrayList<>();
+		List<String> items = new ArrayList<>();
 		items.add("pen");
 		items.add("penci");
 		items.add("box");

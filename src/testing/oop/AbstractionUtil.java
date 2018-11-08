@@ -1,10 +1,10 @@
 package testing.oop;
 
-public class AbstractionUtil extends Abstraction implements AbstractionInterface{
+public class AbstractionUtil extends Abstraction implements AbstractionInterface {
 
 	public static void main(String[] args) {
 		AbstractionUtil at = new AbstractionUtil();
-		
+
 		at.testAbstraction();
 	}
 
