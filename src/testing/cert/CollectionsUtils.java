@@ -60,5 +60,25 @@ public class CollectionsUtils {
                 .filter(e -> e.getValue().startsWith("s"))
                 .peek(e -> System.out.println("Lambda: " + e.getValue()))
                 .collect(Collectors.toList());
+
+        Map<Integer, String> sameKeys = new HashMap<>(2) {{
+            put(1, "s1");
+            put(1, "s2");
+            put(1, "s3");
+        }};
+
+        sameKeys.forEach((key, value) -> {
+            System.out.println("Hash of elements of sameKeys: " + value + " is " + value.hashCode());
+        });
+
+        Set<Integer> set = new HashSet<>() {{
+            add(1);
+            System.out.println(add(2));
+            System.out.println(add(2));
+            System.out.println(add(2));
+            add(3);
+        }};
+
+        set.forEach(System.out::println);
     }
 }
