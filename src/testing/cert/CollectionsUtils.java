@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class CollectionsUtils {
+	private static transient Map<Integer, String> m;
+	
     public static void main(String[] args) {
         System.out.println("Deque:");
         Deque<String> deq = new LinkedList<>(); // Queue<String> q = new
@@ -40,7 +42,7 @@ public class CollectionsUtils {
 
         q.stream().filter(s -> Integer.valueOf(s.substring(1)) % 2 == 0).forEach(System.out::println);
 
-        Map<Integer, String> m = new HashMap<>(2) {{
+        m = new HashMap<>(2) {{
             put(1, "s1");
             put(2, "s2");
             put(3, "s3");
