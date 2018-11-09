@@ -14,9 +14,12 @@ public class ProducerConsumerSolution {
 
 	public static void main(String args[]) {
 		Vector<Integer> sharedQueue = new Vector<Integer>();
+		
 		int size = 4;
+		
 		Thread prodThread = new Thread(new ProducerWN(sharedQueue, size), "Producer");
 		Thread consThread = new Thread(new ConsumerWN(sharedQueue, size), "Consumer");
+		
 		prodThread.start();
 		consThread.start();
 	}
