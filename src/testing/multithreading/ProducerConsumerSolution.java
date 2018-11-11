@@ -105,7 +105,7 @@ class ConsumerWN implements Runnable {
 		// Otherwise consume element and notify waiting producer
 		synchronized (sharedQueue) {
 			sharedQueue.notifyAll();
-			return (Integer) sharedQueue.remove(0);
+			return sharedQueue.remove(0);
 		}
 	}
 }

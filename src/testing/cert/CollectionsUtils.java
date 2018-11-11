@@ -87,5 +87,7 @@ public class CollectionsUtils {
 		};
 
 		set.forEach(System.out::println);
+
+		Set<? extends Object> setOfObject = new HashSet<String>(); // Set<Object> setOfObject = new HashSet<String>(); won't compile
 	}
 }
