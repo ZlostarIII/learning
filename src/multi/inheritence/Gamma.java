@@ -25,5 +25,10 @@ public class Gamma extends Beta {
 		System.out.println(g1.getType() + g2.getType() + a1.getType());
 		
 		System.out.println(a instanceof Beta);
+		System.out.println(g1 instanceof Beta);
+		System.out.println(a1 instanceof Beta);
+		System.out.println(g2 instanceof Beta);
+		System.out.println(g2 instanceof Gamma);
+
 	}
 }
