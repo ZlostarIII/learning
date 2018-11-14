@@ -50,4 +50,12 @@ public class StreamsUtils {
 
         stringPriorityQueue.stream().peek(System.out::println).allMatch(s -> s.startsWith("F"));
     }
+
+    public String getDescription(Object obj){
+        return (String) obj;
+    }
+
+    public String getDescription(String obj){
+        return obj;
+    }
 }
