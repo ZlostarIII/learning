@@ -9,7 +9,7 @@ public class EpamMatching {
 		String s1 = "Adam";
 		String s2 = "Amanda";
 		
-		checkMatching(s2, s1);
+		checkMatching(s1, s2);
 		
 		String s3 = "Javier";
 		String s4 = "Bardem";
@@ -41,13 +41,14 @@ public class EpamMatching {
 		System.out.println(l2);
 		if(c1.length > c2.length) {
 			System.out.println(l2.removeAll(l1));
-			System.out.println("Matching: " + (c2.length-l2.size()));
+			System.out.println("Matching here: " + (c2.length-l2.size()));
 		} else {
 			System.out.println(l1.removeAll(l2));
-			System.out.println("Matching: " + (c1.length-l1.size()));
+			System.out.println("Matching there: " + (c1.length-l1.size()));
 		}
 		System.out.println(l1);
 		System.out.println(l2);
+		System.out.println("===========================");
 
 	}
 
