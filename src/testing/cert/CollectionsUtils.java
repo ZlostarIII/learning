@@ -91,5 +91,7 @@ public class CollectionsUtils {
 		Set<? extends Object> setOfObject = new HashSet<String>(); // Set<Object> setOfObject = new HashSet<String>(); won't compile
 		
 		Hashtable<String, ? extends Object> ht = new Hashtable<>();
+		
+		Map<String, String> tm = new TreeMap<>();
 	}
 }
