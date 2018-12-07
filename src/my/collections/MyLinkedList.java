@@ -7,16 +7,32 @@ import java.util.ListIterator;
 
 public class MyLinkedList<E> implements List<E> {
 
+    Node<E> head;
+    Node<E> tail;
+    int size;
+
+	private static class Node<E> {
+		E elem;
+		Node<E> next;
+
+        public Node(E elem) {
+            this.elem = elem;
+        }
+
+        public Node(E elem, Node<E> prevNode) {
+            this.elem = elem;
+            prevNode.next = this;
+        }
+    }
+
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return size;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return size == 0;
 	}
 
 	@Override
@@ -45,8 +61,20 @@ public class MyLinkedList<E> implements List<E> {
 
 	@Override
 	public boolean add(E e) {
-		// TODO Auto-generated method stub
-		return false;
+	    boolean sizeChanged = false;
+
+        if (head == null) {
+            head = new Node(e);
+            tail = head;
+            sizeChanged = true;
+        } else {
+            Node newNode = new Node(e, tail);
+            tail = newNode;
+            sizeChanged = true;
+        }
+        size++;
+
+        return sizeChanged;
 	}
 
 	@Override
