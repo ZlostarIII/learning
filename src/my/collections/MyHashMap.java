@@ -1,6 +1,7 @@
 package my.collections;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -112,7 +113,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
 	@Override
 	public Set<K> keySet() {
-		Set<K> keys = null;
+		Set<K> keys = new HashSet<>();
 		for(Node<K, V> n : initMap) {
 			keys.add(n.getKey());
 		}
@@ -121,7 +122,9 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
 	@Override
 	public Collection<V> values() {
-		Collection<K> values = Stream.of(initMap).forEach(v -> v.getValue()).collect(Collectors.toCollection());
+//		Collection<K> values = Stream.of(initMap).forEach(v -> v.getValue()).collect(Collectors.toCollection());
+		Collection<K> values = null;
+		return (Collection<V>) values;
 	}
 
 	@Override

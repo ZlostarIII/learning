@@ -13,15 +13,12 @@ public class MyLinkedList<E> implements List<E> {
 
 	private static class Node<E> {
 		E elem;
-		Node<E> next;
+		Node<E> prev, next;
 
-        public Node(E elem) {
+        public Node(E elem, Node<E> prev, Node<E> next) {
             this.elem = elem;
-        }
-
-        public Node(E elem, Node<E> prevNode) {
-            this.elem = elem;
-            prevNode.next = this;
+            this.prev = prev;
+            this.next = next;
         }
     }
 
@@ -37,7 +34,16 @@ public class MyLinkedList<E> implements List<E> {
 
 	@Override
 	public boolean contains(Object o) {
-		// TODO Auto-generated method stub
+		Node<E> node = head;
+
+		while(node != null) {
+			if(node.elem.equals(o)) {
+				return true;
+			}
+			
+			node = node.next;
+		}
+		
 		return false;
 	}
 
@@ -49,8 +55,17 @@ public class MyLinkedList<E> implements List<E> {
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		Object[] linkedArray = new Object[size];
+		Node<E> node = head;
+		int index = 0;
+		
+		while(node != null) {
+			linkedArray[index] = node.elem;
+			index++;
+			node = node.next;
+		}
+		
+		return linkedArray;
 	}
 
 	@Override
@@ -62,25 +77,74 @@ public class MyLinkedList<E> implements List<E> {
 	@Override
 	public boolean add(E e) {
 	    boolean sizeChanged = false;
+	    
+	    Node<E> newNode = new Node<>(e, null, tail);
 
         if (head == null) {
-            head = new Node(e);
+            head = newNode;
             tail = head;
             sizeChanged = true;
         } else {
-            Node newNode = new Node(e, tail);
-            tail = newNode;
+            tail.next = newNode;
             sizeChanged = true;
         }
         size++;
 
         return sizeChanged;
 	}
+	
+	public boolean addFirst(E e) {
+		boolean sizeChanged = false;
+		
+		Node<E> node = head;
+		Node<E> newNode = new Node<>(e, node, null);
+
+        if (head == null) {
+            head = newNode;
+            tail = head;
+            sizeChanged = true;
+        } else {
+            tail.prev = newNode;
+            sizeChanged = true;
+        }
+        size++;
+        
+		return sizeChanged;
+	}
 
 	@Override
 	public boolean remove(Object o) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean sizeChanged = false;
+		Node<E> node = head;
+
+		while(node != null) {
+			
+			if(node.elem.equals(o)) {
+				
+				if (node.prev == null) {
+					head = node.next;
+				} else {
+					node.prev.next = node.next;
+					node.prev = null;
+				}
+
+				if (node.next == null) {
+					tail = node.prev;
+				} else {
+					node.next.prev = node.prev;
+					node.next = null;
+				}
+
+				node.elem = null;
+				
+				sizeChanged = true;
+			}
+			
+			size--;
+			node = node.next;
+		}
+		
+		return sizeChanged;
 	}
 
 	@Override
@@ -115,44 +179,145 @@ public class MyLinkedList<E> implements List<E> {
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		Node<E> node = head;
 		
+		while(node != null) {
+			Node<E> newNode = node;
+			node.elem = null;
+			node.next = null;
+			node.prev = null;
+			
+			node = newNode.next;
+		}
 	}
 
 	@Override
 	public E get(int index) {
-		// TODO Auto-generated method stub
+		Node<E> node = head;
+		int counter = 0;
+		
+		while(node != null) {
+			if(counter == index) {
+				return node.elem;
+			}
+			counter++;
+			node = node.next;
+		}
+		
 		return null;
 	}
 
 	@Override
 	public E set(int index, E element) {
-		// TODO Auto-generated method stub
-		return null;
+		Node<E> node = head;
+		E el = null;
+		int counter = 0;
+
+		while(node != null) {
+			if(counter == index) {
+				el = node.elem;
+				node.elem = element;
+			}
+			counter++;
+			node = node.next;
+		}
+		
+		return el;
 	}
 
 	@Override
 	public void add(int index, E element) {
-		// TODO Auto-generated method stub
+		Node<E> node = head;
+		int counter = 0;
+
+		while(node != null) {
+			if(counter == index) {
+				
+				if (node.prev == null) {
+					head = node;
+				} else {
+					node.prev = node;
+				}
+
+				if (node.next == null) {
+					tail = node;
+				} else {
+					node.next = node;
+				}
+
+				node.elem = element;
+			}
+			
+			size++;
+			node = node.next;
+		}
 		
 	}
 
 	@Override
 	public E remove(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		Node<E> node = head;
+		E el = null;
+		int counter = 0;
+
+		while(node != null) {
+			if(counter == index) {
+				
+				if (node.prev == null) {
+					head = node.next;
+				} else {
+					node.prev.next = node.next;
+					node.prev = null;
+				}
+
+				if (node.next == null) {
+					tail = node.prev;
+				} else {
+					node.next.prev = node.prev;
+					node.next = null;
+				}
+
+				el = node.elem;
+				node.elem = null;
+			}
+			
+			size--;
+			node = node.next;
+		}
+		
+		return el;
 	}
 
 	@Override
 	public int indexOf(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+		int index = 0;
+		Node<E> node = head;
+
+		while(node != null) {
+			if(node.elem.equals(o)) {
+				return index;
+			}
+			index++;
+			node = node.next;
+		}
+		
+		return -1;
 	}
 
 	@Override
 	public int lastIndexOf(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+		int index = size;
+		Node<E> node = tail;
+
+		while(node != null) {
+			if(node.elem.equals(o)) {
+				return index;
+			}
+			index--;
+			node = node.prev;
+		}
+		
+		return -1;
 	}
 
 	@Override
