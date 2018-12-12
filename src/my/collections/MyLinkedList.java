@@ -60,8 +60,7 @@ public class MyLinkedList<E> implements List<E> {
 		int index = 0;
 		
 		while(node != null) {
-			linkedArray[index] = node.elem;
-			index++;
+			linkedArray[index++] = node.elem;
 			node = node.next;
 		}
 		
@@ -77,17 +76,19 @@ public class MyLinkedList<E> implements List<E> {
 	@Override
 	public boolean add(E e) {
 	    boolean sizeChanged = false;
-	    
+
+	    // check
 	    Node<E> newNode = new Node<>(e, null, tail);
 
         if (head == null) {
             head = newNode;
-            tail = head;
             sizeChanged = true;
         } else {
             tail.next = newNode;
             sizeChanged = true;
         }
+
+        tail = newNode;
         size++;
 
         return sizeChanged;
