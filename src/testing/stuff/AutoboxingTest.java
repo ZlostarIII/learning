@@ -15,8 +15,8 @@ public class AutoboxingTest {
 		System.out.println("num1 == num2 : " + (num1 == num2)); // true
 
 		// Example 3: special case - arises due to autoboxing in Java
-		Integer obj1 = 1; // autoboxing will call Integer.valueOf()
-		Integer obj2 = 1; // same call to Integer.valueOf() will return same
+		Integer obj1 = 1000; // autoboxing will call Integer.valueOf()
+		Integer obj2 = 1000; // same call to Integer.valueOf() will return same
 							// cached Object
 
 		System.out.println("obj1 == obj2 : " + (obj1 == obj2)); // true
