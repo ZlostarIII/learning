@@ -30,7 +30,7 @@ public class FunctionalTest {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 
-		Optional<Integer> applyA = service().apply("1");
+		Optional<Integer> applyA = service().apply("2");
 
 		Optional<Integer> applyB = service().doWork("1");
 
