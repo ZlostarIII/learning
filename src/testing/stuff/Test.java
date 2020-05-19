@@ -67,7 +67,6 @@ public class Test {
 
     public static boolean isAnagram2(String a, String b) {
         Map<Character, Integer> m1 = new HashMap<>();
-        Map<Character, Integer> m2 = new HashMap<>();
 
         for (Character c: a.toLowerCase().toCharArray()) {
             if(m1.containsKey(c)) {
