@@ -3,7 +3,7 @@ package testing.stuff;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Test {
+public class AnagramTest {
 
     public static void main(String[] args) {
         System.out.println(Integer.parseInt("10"));
