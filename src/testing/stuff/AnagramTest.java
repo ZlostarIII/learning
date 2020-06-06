@@ -76,6 +76,8 @@ public class AnagramTest {
             }
         }
 
+        m1.values().stream().filter(v -> v > 1).count();
+
         for (Character c: b.toLowerCase().toCharArray()) {
             if(m1.containsKey(c)) {
                 m1.put(c, m1.get(c) - 1);
